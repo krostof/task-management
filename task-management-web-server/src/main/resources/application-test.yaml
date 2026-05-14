@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:16:///task_management
+  liquibase:
+    enabled: false
