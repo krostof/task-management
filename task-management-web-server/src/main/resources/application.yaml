@@ -2,13 +2,14 @@ spring:
   application:
     name: task-managemnt-system
   datasource:
-    url: jdbc:postgresql://localhost:5433/task_management
-    username: postgres
-    password: postgres
-    jpa:
-      hibernate:
-        ddl-auto: validate
-      show-sql: false
+    url: jdbc:postgresql://localhost:5433/task-management-db
+    username: user
+    password: pass
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
   liquibase:
     enabled: true
-    change-log: classpath:db/changelog/db.changelog-master.yaml
+    change-log: classpath:db/changelog/changelog-master.yaml
