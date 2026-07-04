@@ -1,7 +1,6 @@
 package com.example.task_managemnt_system.security;
 
 import com.example.domain.repository.UserRepository;
-import com.example.task_managemnt_system.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

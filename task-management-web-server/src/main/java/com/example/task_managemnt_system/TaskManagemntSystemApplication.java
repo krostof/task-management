@@ -5,7 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {
+		"com.example.task_managemnt_system",
+		"com.example.security",
+		"com.example.domain"
+})
 @EnableJpaRepositories(basePackages = {
 		"com.example.domain"
 })
