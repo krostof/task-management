@@ -2,4 +2,89 @@ openapi: 3.0.3
 info:
   title: Task Management API
   version: 1.0.0
-paths: {}
+paths:
+  /api/v1/auth/register:
+    post:
+      description: "subscribes a client to receive out-of-band data"
+      operationId: registerUser
+      requestBody:
+        content:
+            application/json:
+                schema:
+                  $ref: "#/components/schemas/RegisterRequest"
+      responses:
+        '200':
+          description: "JSON web token (JWT) required to login"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        '400':
+          description: "Invalid input data"
+  /api/v1/auth/login:
+    post:
+        description: "Login with email and password to receive a JSON web token (JWT) for accessing protected resources"
+        operationId: loginUser
+        requestBody:
+            content:
+                application/json:
+                    schema:
+                      $ref: "#/components/schemas/LoginRequest"
+        responses:
+          '200':
+            description: "JSON web token (JWT) required to access protected resources"
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/AuthResponse"
+          '400':
+            description: "Invalid input data"
+
+components:
+  schemas:
+    RegisterRequest:
+      type: object
+      required:
+        - name
+        - surname
+        - email
+        - password
+      properties:
+        name:
+          type: string
+        surname:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+
+    AuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+
+    LoginRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        status:
+          type: integer

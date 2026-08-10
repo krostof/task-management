@@ -1,7 +1,6 @@
 package com.example.task_managemnt_system.security;
 
 import com.example.domain.repository.UserRepository;
-import com.example.task_managemnt_system.security.UserPrincipal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,7 +17,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         return userRepository.findByEmail(email)
                 .map(UserPrincipal::new)
-                .orElseThrow(() -> new UsernameNotFoundException("..."));
+                .orElseThrow(() -> new UsernameNotFoundException("User not found: " + email));
     }
 }
 
