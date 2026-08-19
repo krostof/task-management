@@ -31,8 +31,8 @@ public class AuthService {
         UserDto userDto = new UserDto(
                 registerRequest.getName(),
                 registerRequest.getSurname(),
-                registerRequest.getEmail(),
-                encodedPassword
+                encodedPassword,
+                registerRequest.getEmail()
         );
 
         userService.save(userDto);
