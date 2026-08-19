@@ -86,5 +86,3 @@ components:
         timestamp:
           type: string
           format: date-time
-        status:
-          type: integer

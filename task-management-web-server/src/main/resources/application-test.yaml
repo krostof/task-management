@@ -2,4 +2,10 @@ spring:
   datasource:
     url: jdbc:tc:postgresql:16:///task_management
   liquibase:
-    enabled: false
+    enabled: true
+
+application:
+  security:
+    jwt:
+      secret-key: fUcRV2506ahchYI9QctQ+a3fHW0g+vUAP62m6/jd2t8=
+      expiration-time: 86400000
