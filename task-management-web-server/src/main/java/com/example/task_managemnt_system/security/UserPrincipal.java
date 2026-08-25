@@ -3,7 +3,7 @@ package com.example.task_managemnt_system.security;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import com.example.domain.user.User;
+import com.example.domain.entity.User;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;

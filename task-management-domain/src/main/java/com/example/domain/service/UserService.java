@@ -3,8 +3,8 @@ package com.example.domain.service;
 import com.example.domain.dto.UserDto;
 import com.example.domain.exception.EmailAlreadyExistException;
 import com.example.domain.repository.UserRepository;
-import com.example.domain.user.User;
-import com.example.domain.user.UserRole;
+import com.example.domain.entity.User;
+import com.example.domain.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
