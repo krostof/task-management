@@ -4,7 +4,7 @@ import com.example.domain.dto.UserDto;
 import com.example.domain.exception.EmailAlreadyExistException;
 import com.example.domain.repository.UserRepository;
 import com.example.domain.entity.User;
-import com.example.domain.UserRole;
+import com.example.domain.enums.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

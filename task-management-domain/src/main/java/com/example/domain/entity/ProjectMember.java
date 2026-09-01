@@ -1,7 +1,7 @@
 package com.example.domain.entity;
 
 import com.example.domain.BaseEntity;
-import com.example.domain.ProjectRole;
+import com.example.domain.enums.ProjectRole;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
