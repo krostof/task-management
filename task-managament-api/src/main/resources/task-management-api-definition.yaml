@@ -39,6 +39,27 @@ paths:
                         $ref: "#/components/schemas/AuthResponse"
           '400':
             description: "Invalid input data"
+  /api/v1/tasks:
+   post:
+        description: "Create a new task for the authenticated user"
+        operationId: createTask
+        requestBody:
+            content:
+                application/json:
+                    schema:
+                      $ref: "#/components/schemas/TaskRequest"
+        responses:
+          '201':
+            description: "Task created successfully"
+            content:
+                application/json:
+                    schema:
+                        $ref: "#/components/schemas/TaskResponse"
+          '400':
+            description: "Invalid input data"
+          '401':
+            description: "Unauthorized access - invalid or missing JWT"
+
 
 components:
   schemas:
@@ -77,6 +98,48 @@ components:
           format: email
         password:
           type: string
+    TaskRequest:
+        type: object
+        required:
+            - title
+            - projectId
+            - taskPriority
+        properties:
+            title:
+                type: string
+            description:
+                type: string
+            projectId:
+                type: integer
+                format: uuid
+            sprintId:
+                type: integer
+                format: uuid
+            assigneeId:
+                type: integer
+                format: uuid
+            taskPriority:
+              type: string
+              enum: [LOW, MEDIUM, HIGH]
+    TaskResponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        description:
+          type: string
+        taskStatus:
+          type: string
+        taskPriority:
+          type: string
+        projectId:
+          type: string
+          format: uuid
+        assigneeId:
+          type: string
+          format: uuid
 
     ErrorResponse:
       type: object
