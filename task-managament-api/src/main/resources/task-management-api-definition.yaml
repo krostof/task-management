@@ -5,6 +5,8 @@ info:
 paths:
   /api/v1/auth/register:
     post:
+      tags:
+        - auth
       description: "subscribes a client to receive out-of-band data"
       operationId: registerUser
       requestBody:
@@ -23,6 +25,8 @@ paths:
           description: "Invalid input data"
   /api/v1/auth/login:
     post:
+        tags:
+          - auth
         description: "Login with email and password to receive a JSON web token (JWT) for accessing protected resources"
         operationId: loginUser
         requestBody:
@@ -41,6 +45,8 @@ paths:
             description: "Invalid input data"
   /api/v1/tasks:
    post:
+        tags:
+          - tasks
         description: "Create a new task for the authenticated user"
         operationId: createTask
         requestBody:
@@ -110,13 +116,13 @@ components:
             description:
                 type: string
             projectId:
-                type: integer
+                type: string
                 format: uuid
             sprintId:
-                type: integer
+                type: string
                 format: uuid
             assigneeId:
-                type: integer
+                type: string
                 format: uuid
             taskPriority:
               type: string
