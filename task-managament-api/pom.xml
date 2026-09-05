@@ -55,6 +55,7 @@
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
                                 <useBeanValidation>true</useBeanValidation>
+                                <useTags>true</useTags>
                                 <apiPackage>com.example.api</apiPackage>
                                 <modelPackage>com.example.api.model</modelPackage>
                             </configOptions>

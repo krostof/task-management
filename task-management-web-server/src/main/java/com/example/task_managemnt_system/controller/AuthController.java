@@ -1,6 +1,6 @@
 package com.example.task_managemnt_system.controller;
 
-import com.example.api.ApiApi;
+import com.example.api.AuthApi;
 import com.example.api.model.AuthResponse;
 import com.example.api.model.LoginRequest;
 import com.example.api.model.RegisterRequest;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class AuthController implements ApiApi {
+public class AuthController implements AuthApi {
 
     private final AuthService authService;
 
