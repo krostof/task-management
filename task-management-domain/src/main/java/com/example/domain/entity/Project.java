@@ -1,6 +1,7 @@
 package com.example.domain.entity;
 
 import com.example.domain.BaseEntity;
+import com.example.domain.enums.ProjectStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,10 @@ public class Project extends BaseEntity {
 
     @Column(length = 255)
     private String description;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "project_status", nullable = false, length = 20)
+    private ProjectStatus projectStatus;
 
     @OneToMany(mappedBy = "project")
     private List<ProjectMember> members;

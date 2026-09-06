@@ -44,7 +44,7 @@ paths:
           '400':
             description: "Invalid input data"
   /api/v1/tasks:
-   post:
+    post:
         tags:
           - tasks
         description: "Create a new task for the authenticated user"
@@ -65,6 +65,28 @@ paths:
             description: "Invalid input data"
           '401':
             description: "Unauthorized access - invalid or missing JWT"
+  /api/v1/projects:
+    post:
+      tags:
+        - projects
+      description: "Create a new project for the authenticated user"
+      operationId: createProject
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectRequest"
+      responses:
+        '201':
+          description: "Project created successfully"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectResponse"
+        '400':
+          description: "Invalid input data"
+        '401':
+          description: "Unauthorized access - invalid or missing JWT"
 
 
 components:
@@ -146,6 +168,27 @@ components:
         assigneeId:
           type: string
           format: uuid
+    ProjectRequest:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    ProjectResponse:
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+        projectStatus:
+          type: string
+          enum: [ ACTIVE, ARCHIVED ]
 
     ErrorResponse:
       type: object

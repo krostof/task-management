@@ -27,6 +27,7 @@ public class TaskController implements TasksApi {
 
     private final TaskRepository taskRepository;
     private final TaskMapper taskMapper;
+    private final ProjectRepository projectRepository;
 
     @Override
     public ResponseEntity<TaskResponse> createTask(TaskRequest taskRequest) {
@@ -34,9 +35,13 @@ public class TaskController implements TasksApi {
             return ResponseEntity.badRequest().build();
         }
 
+        Project project = projectRepository.findById(taskRequest.getProjectId())
+                .orElseThrow(() -> new EntityNotFoundException("Project not found: " + taskRequest.getProjectId()));
+
         Task task = taskMapper.toEntity(taskRequest);
         task.setTaskStatus(TaskStatus.NEW);
         task.setCreator(currentUser());
+        task.setProject(project);
 
         Task savedTask = taskRepository.save(task);
 

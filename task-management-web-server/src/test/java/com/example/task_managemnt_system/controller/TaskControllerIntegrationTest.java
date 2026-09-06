@@ -5,6 +5,7 @@ import com.example.api.model.RegisterRequest;
 import com.example.api.model.TaskRequest;
 import com.example.domain.entity.Project;
 import com.example.domain.entity.Task;
+import com.example.domain.enums.ProjectStatus;
 import com.example.domain.enums.TaskStatus;
 import com.example.domain.repository.ProjectRepository;
 import com.example.domain.repository.TaskRepository;
@@ -111,6 +112,7 @@ class TaskControllerIntegrationTest {
         Project project = new Project();
         project.setName("Test project " + UUID.randomUUID());
         project.setDescription("Project created for integration tests");
+        project.setProjectStatus(ProjectStatus.ACTIVE);
         return projectRepository.save(project);
     }
 }
